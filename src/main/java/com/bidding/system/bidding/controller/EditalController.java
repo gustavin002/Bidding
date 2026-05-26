@@ -10,10 +10,8 @@ package com.bidding.system.bidding.controller;
 // Importa as classes necessárias para o controller
 import com.bidding.system.bidding.model.EditalDTO;
 import com.bidding.system.bidding.model.LanceDTO;
-import com.bidding.system.bidding.model.UserDTO;
 import com.bidding.system.bidding.service.EditalService;
 import com.bidding.system.bidding.service.LanceService;
-import com.bidding.system.bidding.service.TokenService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,11 +21,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-/**
- *
- * @author Usuario
- */
 
 // Indica que esta classe é um controller REST do Spring
 // REST = Representational State Transfer (padrão de API web)
