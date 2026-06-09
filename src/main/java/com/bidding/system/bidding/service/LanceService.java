@@ -44,6 +44,12 @@ public class LanceService {
                 throw new ResponseStatusException(HttpStatusCode.valueOf(403), "Você precisa ser Fornecedor para cadastrar um lance!");
             }
             
+            if (lanceRepository.contarLancesPorEditalEFornecedor(id, userLogado.getId()) > 0) {
+            throw new ResponseStatusException(HttpStatusCode.valueOf(400),
+            "Você já enviou uma proposta para este edital. " +
+            "Utilize o recurso de atualização se desejar alterar o valor.");
+            }
+            
             EditalDTO edital = editalRepository.getById(id);
             
             if(!edital.getStatus().equals("ABERTO")) {
