@@ -44,12 +44,6 @@ public class LanceService {
                 throw new ResponseStatusException(HttpStatusCode.valueOf(403), "Você precisa ser Fornecedor para cadastrar um lance!");
             }
             
-            if (lanceRepository.contarLancesPorEditalEFornecedor(id, userLogado.getId()) > 0) {
-            throw new ResponseStatusException(HttpStatusCode.valueOf(400),
-            "Você já enviou uma proposta para este edital. " +
-            "Utilize o recurso de atualização se desejar alterar o valor.");
-            }
-            
             EditalDTO edital = editalRepository.getById(id);
             
             if(!edital.getStatus().equals("ABERTO")) {
@@ -63,7 +57,12 @@ public class LanceService {
             }
             
             int linhas = lanceRepository.criarLance(lance);
-            if(linhas == 0) {
+            
+            if(linhas == -1) {
+                throw new ResponseStatusException(HttpStatusCode.valueOf(400),
+                "Você já enviou uma proposta para este edital. " +
+                "Utilize o recurso de atualização se desejar alterar o valor.");
+            } else if(linhas == 0) {
                 throw new ResponseStatusException(HttpStatusCode.valueOf(500),
                 "Erro ao inserir no banco de dados");
             }
@@ -71,8 +70,6 @@ public class LanceService {
             throw new ResponseStatusException(HttpStatusCode.valueOf(401), "Token Invalido!");
             
         }
-        
-        
         
     }
     
