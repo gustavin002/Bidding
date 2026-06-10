@@ -22,12 +22,12 @@ import java.sql.SQLException;
 public class Conexao {
     // URL de conexão com o banco de dados MySQL
     // Formato: jdbc:mysql://host:porta/nome_banco_dados
-    // localhost = máquina local, 3306 = porta padrão MySQL, db_bidding_system = nome da base de dados
-    private static final String url = "jdbc:mysql://localhost:3306/db_bidding_system";
+    // localhost = máquina local, 3307 = porta padrão MySQL, db_bidding_system = nome da base de dados
+    private static final String url = "jdbc:mysql://localhost:3307/db_bidding_system";
     // Usuário do banco de dados MySQL para autenticação
     private static final String user = "root";
     // Senha do banco de dados MySQL para autenticação
-    private static final String senha = "1234";
+    private static final String senha = "";
     // Objeto de conexão reutilizável (implementa padrão Singleton)
     // Mantém uma única conexão aberta durante a vida da aplicação
     private static Connection conn = null;

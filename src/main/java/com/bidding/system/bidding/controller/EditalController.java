@@ -85,7 +85,7 @@ public class EditalController {
     // POST é usado para criar novos recursos (neste caso, um novo lance em um edital)
     // {id} é um parâmetro dinâmico que será substituído pelo id real na URL
     @PostMapping("{id}/lances")
-    public String registrarLance(
+    public String criarLance(
             // @RequestHeader: extrai o header Authorization contendo o token JWT
             @RequestHeader("Authorization") String auth,
             // @RequestBody: transforma o corpo JSON em um objeto LanceDTO
